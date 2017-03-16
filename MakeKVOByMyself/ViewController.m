@@ -13,9 +13,7 @@
 
 @interface Person : NSObject
 
-@property (nonatomic, assign) NSInteger age;
 @property (nonatomic, copy) NSString *friend;
-
 
 @end
 
@@ -35,8 +33,7 @@
 
 - (IBAction)btnClick:(UIButton *)sender {
     
-    NSArray *msgs = @[@(11), @(22), @(33), @(55), @(66)];
-    NSArray *friends = @[@"1", @"2", @"3"];
+    NSArray *friends = @[@"Giant", @"Axe", @"77"];
     NSInteger index = arc4random_uniform((u_int32_t)friends.count);
     self.p.friend = friends[index];
     

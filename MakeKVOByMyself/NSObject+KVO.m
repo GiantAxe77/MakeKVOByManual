@@ -25,6 +25,7 @@ NSString *const kAXEKVOAssociatedObservers = @"AXEKVOAssociatedObservers";
 
 @implementation AXEObservationInfo
 
+/** 初始化 */
 - (instancetype)initWithObserver:(NSObject *)observer key:(NSString *)key block:(AxeObservingBlock)block
 {
     if(self = [super init])
@@ -159,25 +160,6 @@ static NSString *getGetter(NSString *setter)
     }
 }
 
-- (BOOL)hasSelector:(SEL)selector
-{
-    Class cla = object_getClass(self);
-    unsigned int methodCount = 0;
-    Method *methodList = class_copyMethodList(cla, &methodCount);
-    for (unsigned int i = 0; i < methodCount; i++) {
-        
-        SEL thisSelector = method_getName(methodList[i]);
-        if(thisSelector == selector)
-        {
-            free(methodList);
-            return YES;
-        }
-    }
-    
-    free(methodList);
-    return NO;
-    
-}
 
 static NSString *getSetter(NSString *getter)
 {
@@ -217,6 +199,27 @@ static Class kvo_class(id self, SEL _cmd)
     objc_registerClassPair(kvoCla);
     
     return kvoCla;
+    
+}
+
+
+- (BOOL)hasSelector:(SEL)selector
+{
+    Class cla = object_getClass(self);
+    unsigned int methodCount = 0;
+    Method *methodList = class_copyMethodList(cla, &methodCount);
+    for (unsigned int i = 0; i < methodCount; i++) {
+        
+        SEL thisSelector = method_getName(methodList[i]);
+        if(thisSelector == selector)
+        {
+            free(methodList);
+            return YES;
+        }
+    }
+    
+    free(methodList);
+    return NO;
     
 }
 

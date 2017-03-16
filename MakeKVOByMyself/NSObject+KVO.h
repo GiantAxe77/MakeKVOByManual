@@ -12,8 +12,10 @@ typedef void(^AxeObservingBlock)(id observedObject, NSString *observedKey, id ol
 
 @interface NSObject (KVO)
 
+/** 添加观察者 */
 - (void)AXE_addObserver:(NSObject *)observer forKey:(NSString *)key withBlock:(AxeObservingBlock)block;
 
+/** 移除观察者 */
 - (void)AXE_removeObserver:(NSObject *)observer forKey:(NSString *)key;
 
 @end

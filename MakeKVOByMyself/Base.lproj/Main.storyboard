@@ -24,7 +24,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OPP-iy-2Fe">
                                 <rect key="frame" x="156" y="301" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="点击我"/>
                                 <connections>
                                     <action selector="btnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Y6I-Ce-LJF"/>
                                 </connections>
