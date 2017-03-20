@@ -25,7 +25,12 @@ NSString *const kAXEKVOAssociatedObservers = @"AXEKVOAssociatedObservers";
 
 @implementation AXEObservationInfo
 
-/** 初始化 */
+// ===============================================================
+//                          Setup
+// ===============================================================
+
+#pragma mark - Setup
+
 - (instancetype)initWithObserver:(NSObject *)observer key:(NSString *)key block:(AxeObservingBlock)block
 {
     if(self = [super init])
@@ -41,6 +46,12 @@ NSString *const kAXEKVOAssociatedObservers = @"AXEKVOAssociatedObservers";
 
 
 @implementation NSObject (KVO)
+
+// ===============================================================
+//                          Add Observer
+// ===============================================================
+
+#pragma mark - Add Observer
 
 - (void)AXE_addObserver:(NSObject *)observer forKey:(NSString *)key withBlock:(AxeObservingBlock)block
 {
@@ -82,6 +93,11 @@ NSString *const kAXEKVOAssociatedObservers = @"AXEKVOAssociatedObservers";
     
 }
 
+// ===============================================================
+//                          Remove Observer
+// ===============================================================
+
+#pragma mark - Remove Observer
 
 - (void)AXE_removeObserver:(NSObject *)observer forKey:(NSString *)key
 {
@@ -98,7 +114,11 @@ NSString *const kAXEKVOAssociatedObservers = @"AXEKVOAssociatedObservers";
     [observers removeObject:removeInfo];
 }
 
-#pragma mark - method support
+// ===============================================================
+//                          Method Support
+// ===============================================================
+
+#pragma mark - Method Support
 
 static void kvo_setter(id self, SEL _cmd, id newValue)
 {

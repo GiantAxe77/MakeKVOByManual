@@ -28,18 +28,13 @@
 @end
 
 
-
 @implementation ViewController
 
-- (IBAction)btnClick:(UIButton *)sender {
-    
-    NSArray *friends = @[@"Giant", @"Axe", @"77"];
-    NSInteger index = arc4random_uniform((u_int32_t)friends.count);
-    self.p.friend = friends[index];
-    
-}
+// ===============================================================
+//                          Life Cycle
+// ===============================================================
 
-
+#pragma mark - Life Cycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -54,5 +49,18 @@
     
 }
 
+// ===============================================================
+//                          事件处理
+// ===============================================================
+
+#pragma mark - 事件处理
+
+- (IBAction)btnClick:(UIButton *)sender {
+    
+    NSArray *friends = @[@"Giant", @"Axe", @"77"];
+    NSInteger index = arc4random_uniform((u_int32_t)friends.count);
+    self.p.friend = friends[index];
+    
+}
 
 @end
