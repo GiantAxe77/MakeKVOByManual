@@ -49,6 +49,12 @@
     
 }
 
+- (void)dealloc
+{
+    [self.p AXE_removeObserver:self forKey:NSStringFromSelector(@selector(friend))];
+}
+
+
 // ===============================================================
 //                          事件处理
 // ===============================================================
