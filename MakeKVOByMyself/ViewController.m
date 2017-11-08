@@ -23,7 +23,7 @@
 
 @interface ViewController ()
 
-@property (nonatomic, strong) Person *p;
+@property (nonatomic, strong) Person *onePerson;
 
 @end
 
@@ -40,8 +40,8 @@
     [super viewDidLoad];
 
     
-    self.p = [Person new];
-    [self.p AXE_addObserver:self forKey:NSStringFromSelector(@selector(friend)) withBlock:^(id observedObject, NSString *observedKey, id oldValue, id newValue) {
+    self.onePerson = [Person new];
+    [self.onePerson AXE_addObserver:self forKey:NSStringFromSelector(@selector(friend)) withBlock:^(id observedObject, NSString *observedKey, id oldValue, id newValue) {
         
         NSLog(@"%@-%@  old:%@  new:%@", observedObject, observedKey, oldValue, newValue);
     }];
@@ -51,7 +51,7 @@
 
 - (void)dealloc
 {
-    [self.p AXE_removeObserver:self forKey:NSStringFromSelector(@selector(friend))];
+    [self.onePerson AXE_removeObserver:self forKey:NSStringFromSelector(@selector(friend))];
 }
 
 
@@ -61,12 +61,11 @@
 
 #pragma mark - 事件处理
 
-- (IBAction)btnClick:(UIButton *)sender {
-    
-    NSArray *friends = @[@"Giant", @"Axe", @"77"];
+- (IBAction)btnClick:(UIButton *)sender
+{
+    NSArray *friends = @[@"Cam", @"Mitch", @"Lily"];
     NSInteger index = arc4random_uniform((u_int32_t)friends.count);
-    self.p.friend = friends[index];
-    
+    self.onePerson.friend = friends[index];
 }
 
 @end
